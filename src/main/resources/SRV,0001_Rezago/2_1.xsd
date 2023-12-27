@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3">
+  <simpleType name="Fecha">
+    <restriction base="xsd:date">
+      <xsd:minInclusive value="0001-01-01"/>
+      <xsd:whiteSpace value="collapse" fixed="true"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="FechaHora">
+    <restriction base="xsd:dateTime">
+      <xsd:minInclusive value="1000-01-01T00:00:00"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Montos">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:maxInclusive value="999999999"/>
+      <xsd:fractionDigits value="4"/>
+    </xsd:restriction>
+  </simpleType>
+  <simpleType name="GrandesMontos">
+    <xsd:restriction base="xsd:decimal">
+      <xsd:maxInclusive value="9999999999999999"/>
+      <xsd:fractionDigits value="4"/>
+    </xsd:restriction>
+  </simpleType>
+  <simpleType name="StringNoVacio">
+    <restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="StringNoVacioAlfanumerico">
+    <restriction base="xsd:string">
+      <xsd:minLength value="1"/>
+      <xsd:pattern value="([a-zA-Z0-9])*"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="Rut">
+    <restriction base="xsd:string">
+      <xsd:minLength value="7"/>
+      <xsd:maxLength value="13"/>
+      <xsd:whiteSpace value="collapse" fixed="true"/>
+      <xsd:pattern value="[0-9]+-([0-9]{1}|K{1}|k{1})"/>
+    </restriction>
+  </simpleType>
+  <xsd:simpleType name="Email">
+    <xsd:restriction base="xsd:string">
+      <xsd:pattern value="[^@]+@[^\.]+\..+"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>

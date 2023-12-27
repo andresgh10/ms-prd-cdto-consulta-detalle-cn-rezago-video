@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WL5G3N0:definitions name="CTR.000649_2.0.ConsultaDetalleCredito.wsdl" targetNamespace="http://osb.bancochile.cl/bch/neg/creditos/consultaDetalleCredito" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/" xmlns:WL5G3N1="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRq/mpi/v/1" xmlns:WL5G3N2="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRs/mpi/v/1" xmlns:WL5G3N3="http://osb.bancochile.cl/ent/bch/infra/mci/errorDetails/v/6" xmlns:WL5G3N4="http://osb.bancochile.cl/ent/bch/neg/mci/cabeceraServicios/v/4" xmlns:WL5G3N5="http://osb.bancochile.cl/bch/neg/creditos/consultaDetalleCredito" xmlns:WL5G3N6="http://schemas.xmlsoap.org/wsdl/soap/">
+  <WL5G3N0:types>
+    <xsd:schema xmlns:det="http://osb.bancochile.cl/ent/bch/infra/mci/errorDetails/v/6" xmlns:head="http://osb.bancochile.cl/ent/bch/neg/mci/cabeceraServicios/v/4" xmlns:inp1="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRq/mpi/v/1" xmlns:out1="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRs/mpi/v/1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://osb.bancochile.cl/bch/neg/creditos/consultaDetalleCredito" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRq/mpi/v/1" schemaLocation="2.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRs/mpi/v/1" schemaLocation="2_1_2.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/ent/bch/neg/mci/cabeceraServicios/v/4" schemaLocation="2_1_2_3.xsd"/>
+      <xsd:import namespace="http://osb.bancochile.cl/ent/bch/infra/mci/errorDetails/v/6" schemaLocation="2_1_2_3_4_5.xsd"/>
+    </xsd:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="consultarDetalleCreditoRqMsg">
+    <WL5G3N0:documentation>Ingreso del mensaje con los requerimientos para el servicio.</WL5G3N0:documentation>
+    <WL5G3N0:part element="WL5G3N1:consultarDetalleCreditoRq" name="consultarDetalleCreditoRq"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="consultarDetalleCreditoRsMsg">
+    <WL5G3N0:documentation>Salida de respuesta del servicio.</WL5G3N0:documentation>
+    <WL5G3N0:part element="WL5G3N2:consultarDetalleCreditoRs" name="consultarDetalleCreditoRs"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="faultMsg">
+    <WL5G3N0:documentation>Salida del error que ocurrio durante el servicio.</WL5G3N0:documentation>
+    <WL5G3N0:part element="WL5G3N3:details" name="error"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="headerRqMsg">
+    <WL5G3N0:documentation>Mensaje con el encabezado correspondiente al mensaje de REQURIMIENTO del mensaje.</WL5G3N0:documentation>
+    <WL5G3N0:part element="WL5G3N4:headerRequest" name="headerRequest"/>
+  </WL5G3N0:message>
+  <WL5G3N0:message name="headerRsMsg">
+    <WL5G3N0:documentation>Mensaje con el encabezado correspondiente al mensaje de RESPUESTA del mensaje.</WL5G3N0:documentation>
+    <WL5G3N0:part element="WL5G3N4:headerResponse" name="headerResponse"/>
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="ConsultaDetalleCreditoPort">
+    <WL5G3N0:documentation>Puesto y operacion usados en la transaccion.</WL5G3N0:documentation>
+    <WL5G3N0:operation name="consultarDetalleCredito">
+      <WL5G3N0:input message="WL5G3N5:consultarDetalleCreditoRqMsg"/>
+      <WL5G3N0:output message="WL5G3N5:consultarDetalleCreditoRsMsg"/>
+      <WL5G3N0:fault message="WL5G3N5:faultMsg" name="fault"/>
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="ConsultaDetalleCreditoBinding" type="WL5G3N5:ConsultaDetalleCreditoPort">
+    <WL5G3N0:documentation>Puerto y operacion con la informacion sobre la ruta de la informacion.</WL5G3N0:documentation>
+    <WL5G3N6:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <WL5G3N0:operation name="consultarDetalleCredito">
+      <WL5G3N6:operation soapAction="consultarDetalleCredito" style="document"/>
+      <WL5G3N0:input>
+        <WL5G3N0:documentation>Informacion de la cabecera del requerimiento.</WL5G3N0:documentation>
+        <WL5G3N6:body namespace="http://osb.bancochile.cl/bch/neg/creditos/consultaDetalleCredito" use="literal"/>
+        <WL5G3N6:header message="WL5G3N5:headerRqMsg" part="headerRequest" use="literal"/>
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N0:documentation>Informacion de la cabecera de la respuesta.</WL5G3N0:documentation>
+        <WL5G3N6:body namespace="http://osb.bancochile.cl/bch/neg/creditos/consultaDetalleCredito" use="literal"/>
+        <WL5G3N6:header message="WL5G3N5:headerRsMsg" part="headerResponse" use="literal"/>
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="ConsultaDetalleCreditoBindingQSService">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port binding="WL5G3N5:ConsultaDetalleCreditoBinding" name="ConsultaDetalleCreditoBindingQSPort">
+      <WL5G3N6:address location="http://152.139.147.231:20001/sb/bch/neg/creditos/consultaDetalleCredito/v/2"/>
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

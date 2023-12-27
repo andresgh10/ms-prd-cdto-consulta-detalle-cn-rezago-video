@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://osb.bancochile.cl/ent/bch/neg/mci/cabeceraServicios/v/4" elementFormDefault="qualified" version="1.0" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ent/bch/neg/mci/cabeceraServicios/v/4" xmlns:infra-com="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3" xmlns:infra-cab="http://osb.bancochile.cl/ent/bch/infra/mci/cabeceraServicios/v/3">
+  <xsd:import namespace="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3" schemaLocation="2_1.xsd"/>
+  <xsd:import namespace="http://osb.bancochile.cl/ent/bch/infra/mci/cabeceraServicios/v/3" schemaLocation="2_1_2_3_4.xsd"/>
+  <complexType name="DatosTransaccion">
+    <sequence>
+      <element name="idTransaccionNegocio" type="infra-com:StringNoVacio" minOccurs="1" maxOccurs="1"/>
+      <element name="internalCode" type="infra-com:StringNoVacio" minOccurs="0" maxOccurs="1"/>
+      <element name="fechaHora" type="xsd:dateTime" minOccurs="1" maxOccurs="1"/>
+      <element name="idCanal" type="infra-com:StringNoVacio" minOccurs="1" maxOccurs="1"/>
+      <element name="numeroSucursal" type="infra-com:StringNoVacio" minOccurs="0" maxOccurs="1"/>
+      <element name="prioridad" type="infra-com:StringNoVacio" minOccurs="0" maxOccurs="1" nillable="true"/>
+    </sequence>
+  </complexType>
+  <complexType name="HeaderRequest">
+    <sequence>
+      <element name="datosConsumidor" type="infra-cab:DatosConsumidor" minOccurs="1" maxOccurs="1"/>
+      <element name="datosTransaccion" type="tns:DatosTransaccion" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+    <anyAttribute namespace="##other" processContents="lax"/>
+  </complexType>
+  <xsd:element name="headerRequest" type="tns:HeaderRequest"/>
+  <complexType name="HeaderResponse">
+    <sequence>
+      <element name="idTransaccionNegocio" type="infra-com:StringNoVacio" minOccurs="1" maxOccurs="1"/>
+      <element name="fechaInicioTrx" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+      <element name="fechaFinTrx" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+      <element name="internalCode" type="infra-com:StringNoVacio" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <xsd:complexType name="EnvelopedRqHeaderType">
+    <xsd:sequence>
+      <xsd:element name="headerRequest" type="tns:HeaderRequest" maxOccurs="1" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:element name="headerResponse" type="tns:HeaderResponse"/>
+</xsd:schema>

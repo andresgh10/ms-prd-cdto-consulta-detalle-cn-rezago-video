@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace="http://osb.bancochile.cl/ent/bch/infra/mci/cabeceraServicios/v/3" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ent/bch/infra/mci/cabeceraServicios/v/3" xmlns:comun="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3">
+  <xsd:import namespace="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3" schemaLocation="2_1.xsd"/>
+  <complexType name="DatosConsumidor">
+    <sequence>
+      <element name="usuario" type="comun:StringNoVacio" minOccurs="1" maxOccurs="1"/>
+      <element name="pathServices" type="comun:StringNoVacio" minOccurs="1" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+</xsd:schema>

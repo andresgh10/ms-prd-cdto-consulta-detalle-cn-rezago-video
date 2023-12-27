@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/ent/bch/infra/mci/errorDetails/v/6" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/ent/bch/infra/mci/errorDetails/v/6" xmlns:infra-com="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3">
+  <xsd:import namespace="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3" schemaLocation="2_1.xsd"/>
+  <complexType name="errorList">
+    <sequence>
+      <element name="error" type="tns:error" minOccurs="1" maxOccurs="unbounded"/>
+    </sequence>
+  </complexType>
+  <complexType name="error">
+    <sequence>
+      <element name="level" type="xsd:string"/>
+      <element name="code" type="xsd:string"/>
+      <element name="description" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <element name="backEnd" type="xsd:string"/>
+    </sequence>
+  </complexType>
+  <complexType name="location">
+    <sequence>
+      <element name="node" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <element name="pipeline" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <element name="stage" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+      <element name="path" type="xsd:string" minOccurs="0" maxOccurs="1"/>
+    </sequence>
+  </complexType>
+  <complexType name="fault">
+    <sequence>
+      <element name="errorCode" type="xsd:string"/>
+      <element name="reason" type="xsd:string"/>
+      <element name="location" type="tns:location"/>
+    </sequence>
+  </complexType>
+  <complexType name="details">
+    <sequence>
+      <element name="fault" type="tns:fault" minOccurs="0" maxOccurs="1"/>
+      <element name="fechaHoraInicioTrx" type="infra-com:FechaHora"/>
+      <element name="fechaHoraFinTrx" type="infra-com:FechaHora"/>
+      <element name="idTransaccionNegocio" type="xsd:string"/>
+      <element name="errorCode" type="xsd:string"/>
+      <element name="errorList" minOccurs="0" maxOccurs="1" type="tns:errorList"/>
+    </sequence>
+  </complexType>
+  <element name="details" type="tns:details"/>
+</schema>

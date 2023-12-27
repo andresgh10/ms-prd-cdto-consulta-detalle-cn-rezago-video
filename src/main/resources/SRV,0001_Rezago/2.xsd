@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRq/mpi/v/1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRq/mpi/v/1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:com="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3">
+  <xsd:import namespace="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3" schemaLocation="2_1.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation>Esquema de Entrada de la del servicio consultarDetalleCredito</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="consultarDetalleCreditoRq">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="numeroCredito" minOccurs="1" maxOccurs="1" type="com:StringNoVacio">
+          <xsd:annotation>
+            <xsd:documentation>numero de Credito a consultar</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="fechaConsulta" minOccurs="1" maxOccurs="1" type="com:Fecha">
+          <xsd:annotation>
+            <xsd:documentation>fecha de Consulta</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</schema>

@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema targetNamespace="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRs/mpi/v/1" elementFormDefault="qualified" xmlns="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://osb.bancochile.cl/bch/neg/creditos/consultarDetalleCreditoRs/mpi/v/1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:com="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3">
+  <xsd:import namespace="http://osb.bancochile.cl/ent/bch/infra/mci/comun/v/3" schemaLocation="2_1.xsd"/>
+  <xsd:annotation>
+    <xsd:documentation>Esquema de Salida de la del servicio consultarDetalleCredito</xsd:documentation>
+  </xsd:annotation>
+  <xsd:element name="consultarDetalleCreditoRs">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="codigoRespuesta" minOccurs="0" maxOccurs="1" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Codigo de respuesta de la consulta</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="glosaRespuesta" minOccurs="0" maxOccurs="1" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Glosa de respuesta de la consulta</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="numeroCredito" minOccurs="0" maxOccurs="1" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Numero Credito</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="rutCliente" minOccurs="0" maxOccurs="1" type="com:Rut">
+          <xsd:annotation>
+            <xsd:documentation>Rut Cliente</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="moneda" minOccurs="0" maxOccurs="1" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Moneda</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="glosaMoneda" minOccurs="0" maxOccurs="1" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>glosa Moneda</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="producto" minOccurs="0" maxOccurs="1" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Producto</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="descripcionProducto" minOccurs="0" maxOccurs="1" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Descripcion Producto</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="listaPagos" minOccurs="0" maxOccurs="1" type="tns:ListaPagos">
+          <xsd:annotation>
+            <xsd:documentation>Lista Pagos</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+        <xsd:element name="deshabilitadoDeCaja" minOccurs="0" maxOccurs="1" type="xsd:string">
+          <xsd:annotation>
+            <xsd:documentation>Deshabilitado De Caja</xsd:documentation>
+          </xsd:annotation>
+        </xsd:element>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="ListaPagos">
+    <xsd:sequence>
+      <xsd:element name="pago" minOccurs="0" maxOccurs="unbounded" type="tns:Pago">
+        <xsd:annotation>
+          <xsd:documentation>Pago</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="Pago">
+    <xsd:sequence>
+      <xsd:element name="numeroCuota" minOccurs="0" maxOccurs="1" type="xsd:integer">
+        <xsd:annotation>
+          <xsd:documentation>Numero Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="codigoEstadoCuota" minOccurs="0" maxOccurs="1" type="string">
+        <xsd:annotation>
+          <xsd:documentation>Codigo Estado Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="descripcionEstadoCuota" minOccurs="0" maxOccurs="1" type="string">
+        <xsd:annotation>
+          <xsd:documentation>Descripcion Estado Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="fechaVencimientoCuota" minOccurs="0" maxOccurs="1" type="com:Fecha">
+        <xsd:annotation>
+          <xsd:documentation>Fecha Vencimiento Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="interesCuota" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Interes Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="interesCuotaOrigen" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Interes Cuota Origen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="interesesPenalesCuota" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Intereses Penales Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="interesesPenalesOrigen" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Intereses Penales Origen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="montoCuota" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Monto Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="montoCuotaOrigen" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Monto Cuota Origen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="gastosCobranzaCuota" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Gastos Cobranza Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="montoTotalCuota" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Monto Total Cuota</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="montoTotalCuotaOrigen" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Monto Total Cuota Origen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="montoComisionC" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Monto Comision C</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="montoComisionCOrigen" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>monto Comision C Origen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="montoComisionP" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>Monto Comision P</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+      <xsd:element name="montoComisionPOrigen" minOccurs="0" maxOccurs="1" type="xsd:decimal">
+        <xsd:annotation>
+          <xsd:documentation>montoComisionP Origen</xsd:documentation>
+        </xsd:annotation>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+</schema>
